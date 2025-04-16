@@ -3,20 +3,19 @@ import requests
 def get_weather(city, api_key):
     """Gets weather data for a city"""
     base_url = "https://api.openweathermap.org/data/2.5/weather"
-    
-    # Parameters for the API request
+
     params = {
         "q": city,
         "appid": api_key,
-        "units": "metric",  # For temperature in Celsius
+        "units": "metric", 
         "lang": "en"        
     }
     
     try:
-        # Send API request
+        
         response = requests.get(base_url, params=params)
         
-        # Check if the request was successful
+        
         if response.status_code == 200:
             weather_data = response.json()
             return weather_data
@@ -44,12 +43,11 @@ def display_weather(weather_data):
         print(f"Conditions: {description}")
         print(f"Humidity: {humidity}%")
 
-# Main program
+
 print("Welcome to the Weather App!")
 print("With this program, you can check the current weather for any city.")
 
-# IMPORTANT: You need an API key from OpenWeatherMap
-# Register for free at https://openweathermap.org/ to get one
+
 API_KEY = "your_api_key_here"  # Replace this with your own API key
 
 while True:
